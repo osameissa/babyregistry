@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leila & Osame's babyshower</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="src/541Wusxp.ico" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #eb8d90, #f8bdbf, #f1bc87);
+        font-family: "Cormorant", serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: linear-gradient(135deg, #eed9c4, #e9be92, #daaf83);
+        color: white;
+        padding-top: 20px;
+        padding-bottom: 0;
+        text-align: center;
+        color: black;
+        border-bottom: black 2px solid;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+      }
+      p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+      }
+      .image-container {
+        text-align: center;
+        margin-top: 20px;
+        position: absolute;
+        top: 0;
+        left: 90%;
+        right: 10px;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+      }
+      h2 {
+        text-decoration: underline;
+        font-size: 2rem;
+        padding-top: 50px;
+      }
+      h1 {
+        color: black;
+        padding-bottom: 20px;
+      }
+      #invite {
+        border: darkred 2px solid;
+        margin: 10px;
+        font-style: italic;
+      }
+      #gift {
+        max-height: 88px;
+        width: auto;
+        opacity: 0.8;
+        pointer-events: none;
+      }
+      #band {
+        position: absolute;
+        top: 20vh;
+        width: 100%;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+      .language {
+        cursor: pointer;
+        text-decoration: underline;
+        margin: 0 5px;
+        font-size: 1.5rem;
+      }
+      .inactive {
+        pointer-events: none;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Ni är inbjudna till Leila & Osame's babyshower,
+        <div class="image-container">
+          <img src="src/stork.png" alt="Stork" />
+        </div>
+        <br />Hjärtligt välkomna! 💖
+      </h1>
+      <span class="language inactive" id="swedish">Svenska</span>
+      <span class="language" id="arabic">عربي</span>
+    </header>
+    <img src="src/band.png" id="band" alt="Band" />
+    <div class="container">
+      <!-- Swedish content -->
+      <h2 id="eventHeaderSwedish">Eventen sker på:</h2>
+      <p id="inviteSwedish">
+        <b
+          >Nedre Kvarnbergsgatan 22 <br />
+          Lördagen den xx Maj <br />
+          Klockan: 14:00</b
+        >
+      </p>
+      <p id="giftInstructionsSwedish">
+        Nedan så har vi en lista på presenter som vi hade uppskattat 💖<br />
+        <br />
+        Ni kan köpa de varsomhelst men markera gärna det ni har tänkt handla så
+        det inte blir dubletter genom att: <br /><br />
+        <b>1.</b> Klicka på "Buy Now" <br />
+        <b>2.</b> Klicka på "I bought this article already" <br /><b>3.</b>
+        Klicka på "Another store"
+        <br />
+        <b>4.</b> Fyll in information (du kan fylla in falsk information om du
+        vill hålla det hemligt) <br />
+        <b>5.</b> Klicka på submit! 🥰
+      </p>
+
+      <!-- Arabic content -->
+      <h2 id="eventHeaderArabic" style="display: none">:تقام الفعاليات في</h2>
+      <p id="inviteArabic" style="display: none">
+        Nedre Kvarnbergsgatan 22<br />
+        السبت xx مايو <br />
+        الوقت: 14:00
+      </p>
+      <p id="giftInstructionsArabic" style="display: none">
+        💖 لدينا أدناه قائمة بالهدايا التي سنقدرها <br />
+        <br />يمكنك شراؤها من أي مكان ولكن يرجى وضع علامة على ما تنوي شراءه حتى
+        لا تتكرر الهدايا باتباع هذه الخطوات<br /><br />
+
+        1. “Buy Now” النقر على <br />
+        2. “I bought this article already“ النقر على <br />3. “Another
+        store“النقر على
+
+        <br />
+        4. قم بملء المعلومات (يمكنك ملء معلومات خاطئة إذا كنت ترغب في الحفاظ على
+        سريتها) <br />
+        5. 🥰 “Submit“النقر على
+      </p>
+
+      <img src="src/gift.png" id="gift" alt="Gift" />
+    </div>
+
+    <script>
+      const swedish = document.getElementById("swedish");
+      const arabic = document.getElementById("arabic");
+      const inviteSwedish = document.getElementById("inviteSwedish");
+      const inviteArabic = document.getElementById("inviteArabic");
+      const giftInstructionsSwedish = document.getElementById(
+        "giftInstructionsSwedish"
+      );
+      const giftInstructionsArabic = document.getElementById(
+        "giftInstructionsArabic"
+      );
+
+      swedish.addEventListener("click", function () {
+        swedish.classList.add("inactive");
+        arabic.classList.remove("inactive");
+        swedish.style.cursor = "default";
+        arabic.style.cursor = "pointer";
+        inviteSwedish.style.display = "block";
+        inviteArabic.style.display = "none";
+        eventHeaderSwedish.style.display = "block";
+        eventHeaderArabic.style.display = "none";
+        giftInstructionsSwedish.style.display = "block";
+        giftInstructionsArabic.style.display = "none";
+      });
+
+      arabic.addEventListener("click", function () {
+        arabic.classList.add("inactive");
+        swedish.classList.remove("inactive");
+        arabic.style.cursor = "default";
+        swedish.style.cursor = "pointer";
+        inviteArabic.style.display = "block";
+        inviteSwedish.style.display = "none";
+        eventHeaderArabic.style.display = "block";
+        eventHeaderSwedish.style.display = "none";
+        giftInstructionsArabic.style.display = "block";
+        giftInstructionsSwedish.style.display = "none";
+      });
+    </script>
+
+    <script
+      id="script_myregistry_giftlist_iframe"
+      type="text/javascript"
+      src="//www.myregistry.com//Visitors/GiftList/iFrames/EmbedRegistry.ashx?r=aZTYlESYIXbrndqUnxNf1A2&v=2"
+    ></script>
+  </body>
+</html>
